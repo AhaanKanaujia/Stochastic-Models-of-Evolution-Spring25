@@ -241,7 +241,8 @@ int main(int argc, char** argv) {
     
     double inv_m = 1.0 / m;
 
-    while(fabs(u[0] - 1.0) > 1e-8 && fabs(u[n] - 1.0) > 1e-8) {
+    // while(fabs(u[0] - 1.0) > 1e-8 && fabs(u[n] - 1.0) > 1e-8) {
+    while (u[0] < m && u[n] < m) {
         // print_vector(u, "U: ");
         if (full_output) {
             *output_stream << T << " ";
@@ -272,9 +273,9 @@ int main(int argc, char** argv) {
         // cout << "Placed Group Index: " << I2 << endl;
 
         // update u and t
-        u[I1] -= inv_m;
-        u[I2] += inv_m;
-        T += tau;
+        u[I1] -= 1;
+        u[I2] += 1;
+        T += 1/tau;
 
         // cout << "Time Taken for Current Event: " << tau << endl;
         // cout << "Total Time: " << T << endl;

@@ -187,8 +187,8 @@ int main(int argc, char** argv) {
     }
     bool full_output = 0;
 
-    int m = 10; // number of groups
-    int n = 10; // number of individuals in a group
+    int m = 100; // number of groups
+    int n = 100; // number of individuals in a group
 
     double lambda = 0.1; // group level events rate
 
@@ -245,7 +245,7 @@ int main(int argc, char** argv) {
 
     // while(fabs(u[0] - 1.0) > 1e-8 && fabs(u[n] - 1.0) > 1e-8) {
     while (u[0] < m && u[n] < m) {
-        print_vector(u, "U: ");
+        // print_vector(u, "U: ");
         if (full_output) {
             *output_stream << T << " ";
             for (int i = 0; i < u.size(); i++) {
@@ -277,7 +277,7 @@ int main(int argc, char** argv) {
         // update u and t
         u[I1] -= 1;
         u[I2] += 1;
-        T += tau;
+        T += 1/tau;
 
         // cout << "Time Taken for Current Event: " << tau << endl;
         // cout << "Total Time: " << T << endl;
